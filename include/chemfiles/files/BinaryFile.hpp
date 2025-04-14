@@ -15,6 +15,9 @@
 
 static_assert(sizeof(char) == sizeof(int8_t), "char must be 8-bits");
 
+#ifdef CHEMFILES_DONT_USE_MMAP
+    #define CHEMFILES_BINARY_FILE_USE_MMAP 0
+#else
 #if defined(__unix__) || (defined(__APPLE__) && defined(__MACH__))
 #if (CHEMFILES_SIZEOF_VOID_P == 8)
     // use mmap in 64-bit posix
@@ -25,6 +28,7 @@ static_assert(sizeof(char) == sizeof(int8_t), "char must be 8-bits");
 #endif
 #else
     #define CHEMFILES_BINARY_FILE_USE_MMAP 0
+#endif
 #endif
 
 namespace chemfiles {
