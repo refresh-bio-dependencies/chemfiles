@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 
 ## Next Release (current master)
 
+## 0.11.0 (6 Oct 2025)
+
 ### Deprecation and removals
 
 - Remove support for configuration files (`chemfiles.toml`) and associated
@@ -17,6 +19,8 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - added `chemfiles::guess_format` and `chfl_guess_format` to get the format
   chemfiles would use for a given file based on its filename
 - Added read support for GROMACS TPR format.
+- Added support for XTC trajectories of gigantic systems (> ~300M atoms)
+  as introduced with GROMACS version 2023
 
 ### Changes in supported formats
 
@@ -27,10 +31,11 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 - Amber NetCDF files are now read/written with a custom netcdf parser (#443)
 - TRR and XTC files are now read/written with a custom XDR files parser (#451)
 - DCD files are now read/written with a custom parser (#453)
-- Support TPR files up to version 2023 without a warning. Files from future
+- Support TPR files up to version 2025 without a warning. Files from future
   versions are tried to be read but emit a warning
 - Improved reading speed of XTC files by implementing a decoding routine
   proposed by [libxtc](https://doi.org/10.1186/s13104-021-05536-5)
+- Read and write forces from/to TRR files as atomic properties (#511)
 
 ### Changes to the API
 
