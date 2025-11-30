@@ -1151,9 +1151,9 @@ void TPRFormat::read_topology(Frame& frame) {
                         "residue index out of bounds, there are {} residues, got index {}",
                         moltype.atoms.residue_infos.size(), props.residue_idx);
                 }
-
-                add_conectivity(frame, moltype.interaction_lists, global_atom_idx);
             }
+
+            add_conectivity(frame, moltype.interaction_lists, global_atom_idx);
             global_atom_idx += atoms.size();
             for (const auto& residue : residues_of_mol) {
                 frame.add_residue(residue);
