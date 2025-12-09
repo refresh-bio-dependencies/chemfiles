@@ -72,7 +72,7 @@ BinaryFile::BinaryFile(std::string path, File::Mode mode):
     open_mode |= _O_BINARY;
     int permissions = _S_IWRITE;
 #else
-    int permissions = S_IRWXU | S_IRWXG | S_IROTH;
+    int permissions = S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH;
 #endif
 
 #ifdef CHEMFILES_WINDOWS
